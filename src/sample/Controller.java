@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import java.util.Arrays;
 
 public class Controller {
-    private StringBuilder magic = new StringBuilder();
+    private StringBuilder magic;
     double P;
     double C;
     double K;
@@ -25,6 +25,7 @@ public class Controller {
 
     @FXML
     protected void handleCountButtonAction(ActionEvent event) {
+        magic = new StringBuilder();
         P = Double.parseDouble(PInput.getText());
         K = Double.parseDouble(KInput.getText());
         C = Double.parseDouble(CInput.getText());
@@ -59,8 +60,6 @@ public class Controller {
         magic.append("Размеры: " + Arrays.toString(mint) + "\n");
         magic.append("Стоимость: " + minf + "\n");
 
-        Output.setText(magic.toString());
-
 
         count = new Count(P,K,C,q,alpha);//создаем объект с параметрами
         count.getLucky();//тут превращаем функцию в оптимиста/пессимиста, если нужно
@@ -91,7 +90,6 @@ public class Controller {
         magic.append("Размеры: " + Arrays.toString(mint) + "\n");
         magic.append("Стоимость: " + minf + "\n");
 
-        Output.setText(magic.toString());
 
         count = new Count(P,K,C,q,alpha);//создаем объект с параметрами
         count.getUnLucky();//тут превращаем функцию в оптимиста/пессимиста, если нужно
